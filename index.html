@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreditSaarthi.ai - India's First AI Credit Coach</title>
+    <title>CreditSaarthi.ai - The Future of Credit</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -11,263 +11,317 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
 
     <style>
-        /* Set new fonts */
+        /* Base Settings */
         body {
-            font-family: 'Poppins', 'Inter', sans-serif;
-            /* Deep Navy to Charcoal gradient background */
-            background-color: #001F3F; /* Deep Navy */
-            background-image: linear-gradient(180deg, #001F3F 0%, #1A1A1A 100%);
-            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000a1f; /* Deepest Navy */
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Text gradient updated to Cyan */
-        .text-gradient {
-            background-image: linear-gradient(to right, #00B4D8, #00B4D8); /* Teal/Cyan */
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        /* --- FUTURISTIC BACKGROUND SYSTEM --- */
+        .futuristic-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: #000a1f;
+            overflow: hidden;
+        }
+        
+        .orb {
+            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.4;
+            animation: float 15s infinite ease-in-out;
+        }
+        .orb-1 { width: 600px; height: 600px; background: #00B4D8; top: -200px; left: -200px; animation-delay: 0s; }
+        .orb-2 { width: 500px; height: 500px; background: #001F3F; bottom: -100px; right: -100px; animation-delay: -5s; }
+        .orb-3 { width: 400px; height: 400px; background: #009ACD; top: 40%; left: 60%; opacity: 0.2; animation-delay: -2s; }
+
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 50px); } }
+
+        /* Tech Grid Overlay */
+        .grid-pattern {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 180, 216, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 216, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        /* Consistent branding for "CreditSaarthi" */
-        .brand-name {
-            font-weight: 600; 
+        /* --- GLASS COMPONENTS --- */
+        .glass-header {
+            background: rgba(0, 10, 31, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.1);
         }
-        .brand-name .credit {
-            color: #ffffff; /* white */
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 180, 216, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #00B4D8;
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* --- TEXT & BRANDING --- */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
+        }
+        
+        .brand-name { font-weight: 700; letter-spacing: -0.02em; }
+        .brand-name .credit { color: #ffffff; }
         .brand-name .saarthi {
-            background-image: linear-gradient(to right, #00B4D8, #00B4D8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #00B4D8;
+            text-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
         }
 
-        /* Primary button style */
-        .btn-primary {
-            background-color: #00B4D8; /* Teal/Cyan */
-            color: #ffffff; /* White text */
+        /* --- BUTTONS --- */
+        .btn-neon {
+            background: rgba(0, 180, 216, 0.1);
+            color: #00B4D8;
+            border: 1px solid #00B4D8;
             font-weight: 600;
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 0.5rem;
+            padding: 0.6rem 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-        .btn-primary:hover {
-            background-color: #009ACD; /* Slightly darker cyan */
-            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
-            transform: translateY(-2px);
+        .btn-neon:hover {
+            background: #00B4D8;
+            color: #000a1f;
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.6);
         }
 
-        /* Animation for fade-in items on scroll */
-        .animated-item {
-            opacity: 0; 
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            transform: translateY(30px);
+        .btn-hero {
+            background: linear-gradient(90deg, #00B4D8, #0096c7);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+            transition: all 0.3s ease;
         }
-        .animated-item.is-visible {
+        .btn-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 180, 216, 0.6);
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
-<body class="text-gray-200 antialiased">
+<body>
+
+    <!-- Background Layer -->
+    <div class="futuristic-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="grid-pattern"></div>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full bg-[#001F3F]/70 backdrop-blur-lg shadow-md border-b border-[#00B4D8]/20">
+    <header class="sticky top-0 z-50 w-full glass-header">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-white">
-                Credit<span class="text-gradient">Saarthi</span>.ai
+            
+            <!-- LOGO SECTION -->
+            <div class="flex items-center gap-3">
+                <!-- IMPORTANT: Rename your logo file to 'logo.jpg' (or png) and put it in your folder -->
+                <img src="logo.jpg" alt="CreditSaarthi Logo" class="h-10 w-auto object-contain rounded-full shadow-[0_0_15px_rgba(0,180,216,0.5)] border border-[#00B4D8]/30">
+                <div class="text-2xl brand-name hidden sm:block">
+                    <span class="credit">Credit</span><span class="saarthi">Saarthi</span><span class="text-[#00B4D8]">.ai</span>
+                </div>
             </div>
-            <!-- LINK TO JOIN PAGE -->
-            <a href="join.html" class="btn-primary text-sm py-2 px-4">Join the Waitlist</a>
+
+            <a href="join.html" class="btn-neon text-sm">Join Waitlist</a>
         </nav>
     </header>
 
     <!-- 1. Hero Section -->
-    <main class="container mx-auto px-6 pt-24 pb-16">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <main class="container mx-auto px-6 pt-24 pb-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <!-- Hero Column 1: Text Content -->
-            <div class="text-center md:text-left animated-item">
-                
-                <!-- "Coming Soon" badge -->
-                <div class="mb-4">
-                    <span class="inline-block bg-cyan-600/10 text-cyan-400 text-sm font-semibold px-4 py-2 rounded-full border border-cyan-500">
-                        Coming Soon
+            <!-- Hero Text -->
+            <div class="text-center lg:text-left fade-in-up">
+                <!-- Glowing Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00B4D8]/10 border border-[#00B4D8]/30 mb-6 shadow-[0_0_15px_rgba(0,180,216,0.2)]">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B4D8] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00B4D8]"></span>
                     </span>
+                    <span class="text-[#00B4D8] text-sm font-semibold tracking-wide uppercase">Coming Soon</span>
                 </div>
                 
-                <!-- Headline -->
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                    India’s First AI Credit Coach
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                    India’s First <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00B4D8] to-white text-glow">AI Credit Coach</span>
                 </h1>
                 
-                <!-- Sub-headline -->
-                <p class="text-lg md:text-xl text-gray-300 mb-8">
-                    Understand, improve, and master your credit with <span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span>, your personal AI coach built for India.
+                <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Master your financial destiny with <span class="text-[#00B4D8] font-semibold">CreditSaarthi</span>. The only AI-powered guide built specifically for the Indian credit ecosystem.
                 </p>
 
-                <!-- LINK TO JOIN PAGE -->
-                <a href="join.html" class="btn-primary inline-block">
-                    Join the Waitlist
-                </a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="join.html" class="btn-hero text-lg">
+                        Join the Inner Circle
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-400">
+                    <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B4D8]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" /></svg> RBI Compliant</span>
+                    <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B4D8]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> 100% Secure</span>
+                </div>
             </div>
             
-            <!-- Hero Column 2: Visual -->
-            <div class="hidden md:block animated-item" style="transition-delay: 150ms;">
-                <!-- Abstract AI/Chat visual -->
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#001F3F;stop-opacity:0.1" />
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#grad1)" fill-opacity="0.6" d="M48.1,-62.5C62.8,-53.1,75.3,-38.7,79.8,-21.8C84.3,-4.9,80.7,14.5,70.5,29.3C60.4,44.1,43.7,54.4,26.4,61.9C9.2,69.5,-8.6,74.3,-25.2,70.4C-41.9,66.6,-57.4,54,-67.2,38.6C-77,23.3,-81.1,5.1,-77.8,-11.7C-74.6,-28.5,-63.9,-43.8,-50,-53.4C-36.1,-63.1,-18.1,-66.9,-0.6,-66.4C16.8,-65.9,33.5,-71.9,48.1,-62.5Z" transform="translate(100 100)" />
-                </svg>
+            <!-- Hero Visual (Holographic Card) -->
+            <div class="relative fade-in-up" style="transition-delay: 200ms;">
+                <!-- Glowing orb behind image -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#00B4D8] rounded-full blur-[100px] opacity-30 animate-pulse"></div>
+                
+                <!-- Glass Container for Hero Image/Graphic -->
+                <div class="glass-card p-6 rounded-3xl relative z-10 border border-[#00B4D8]/30">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00B4D8] to-transparent opacity-70"></div>
+                    <!-- Abstract Tech Visual -->
+                    <svg viewBox="0 0 400 300" class="w-full h-auto drop-shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                        <defs>
+                            <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#001F3F;stop-opacity:0.2" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Stylized Credit Card / Dashboard shape -->
+                        <rect x="50" y="50" width="300" height="180" rx="15" fill="none" stroke="#00B4D8" stroke-width="2" stroke-opacity="0.5" />
+                        <path d="M50 100 H350" stroke="#00B4D8" stroke-width="1" stroke-opacity="0.3" />
+                        <circle cx="90" cy="180" r="30" fill="url(#cyber-grad)" />
+                        <rect x="140" y="160" width="150" height="10" rx="5" fill="#00B4D8" fill-opacity="0.4" />
+                        <rect x="140" y="180" width="100" height="10" rx="5" fill="#00B4D8" fill-opacity="0.2" />
+                        <!-- Floating particles -->
+                        <circle cx="320" cy="80" r="5" fill="#00B4D8" class="animate-ping" />
+                    </svg>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- 2. About / Vision Section -->
-    <section class="py-20 animated-section">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
-                <div class="md:w-1/2 animated-item">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1589707833005-bf738e4c0d03?q=80&w=1740&auto-format&fit=crop" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/001F3F/00B4D8?text=Chat+Interface';" 
-                         alt="Person chatting with AI on phone" class="rounded-2xl shadow-lg w-full">
+    <!-- 2. Vision Section (Glass Cards) -->
+    <section class="py-24 relative z-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image side -->
+                <div class="glass-card p-2 rounded-2xl fade-in-up">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1632&auto=format&fit=crop" 
+                         alt="Digital Finance" class="rounded-xl w-full opacity-80 hover:opacity-100 transition-opacity duration-500">
                 </div>
-                <div class="md:w-1/2 animated-item" style="transition-delay: 150ms;">
-                    <!-- Heading -->
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why We’re Building <span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span></h2>
-                    <p class="text-gray-300 mb-6 text-lg">
-                        Millions of Indians are new to credit, yet confused by scores, reports, and rejections.
-                    </p>
-                    <!-- Body Text -->
-                    <p class="text-gray-300 mb-6 text-lg">
-                        <span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span> simplifies it, an AI-powered credit coach that explains your score, helps you improve it, and guides your journey toward financial confidence.
-                    </p>
-                    <p class="text-xl font-semibold text-white italic">
-                        Learn credit. Build trust. Live confidently.
-                    </p>
+                <!-- Text side -->
+                <div class="fade-in-up" style="transition-delay: 200ms;">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Why We’re Building <span class="text-[#00B4D8]">CreditSaarthi</span></h2>
+                    <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                        <p>Millions of Indians are new to credit, yet confused by scores, reports, and rejections.</p>
+                        <p class="border-l-4 border-[#00B4D8] pl-6 bg-[#00B4D8]/5 py-2 pr-2 rounded-r-lg">
+                            <span class="text-white font-semibold">CreditSaarthi</span> simplifies it. An AI-powered credit coach that explains your score, helps you improve it, and guides your journey toward financial confidence.
+                        </p>
+                        <p class="text-xl text-[#00B4D8] italic font-medium pt-2">Learn credit. Build trust. Live confidently.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Coming Soon – Sneak Peek -->
-    <section class="py-20 bg-[#1A1A1A]/30 animated-section">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="text-center mb-12 animated-item">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Soon Be Able to Do</h2>
-            </div>
+    <!-- 3. Features (Grid of Glass) -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 max-w-6xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 fade-in-up">Unlock Your Financial Potential</h2>
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-slate-800/50 p-8 rounded-2xl border border-[#00B4D8]/30 shadow-lg text-center animated-item" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-2xl text-center fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">💬 Chat with <span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span></h3>
-                    <p class="text-gray-300">Get clear answers about your credit score.</p>
+                    <h3 class="text-xl font-bold mb-3">AI Chat Guidance</h3>
+                    <p class="text-gray-400">Get instant, clear answers about your credit score from your personal Saarthi.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-slate-800/50 p-8 rounded-2xl border border-[#00B4D8]/30 shadow-lg text-center animated-item" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-2xl text-center fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">📈 Track Your Credit Health</h3>
-                    <p class="text-gray-300">Understand what helps or hurts your score.</p>
+                    <h3 class="text-xl font-bold mb-3">Track Health</h3>
+                    <p class="text-gray-400">Visualize what helps or hurts your score with intuitive dashboards.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-slate-800/50 p-8 rounded-2xl border border-[#00B4D8]/30 shadow-lg text-center animated-item" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-2xl text-center fade-in-up" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-[#00B4D8]/10 text-[#00B4D8] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">🔒 Learn Your Rights</h3>
-                    <p class="text-gray-300">Stay informed about RBI and bureau guidelines.</p>
+                    <h3 class="text-xl font-bold mb-3">Know Your Rights</h3>
+                    <p class="text-gray-400">Stay empowered with the latest RBI and bureau guidelines.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Join the Journey Section (SIMPLIFIED) -->
-    <section class="py-20 animated-section">
-        <div class="container mx-auto px-6 text-center max-w-2xl animated-item">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the First to Experience the Future of Credit Coaching</h2>
-            <p class="text-gray-300 text-lg mb-8">
-                CreditSaarthi is currently in its pilot stage with leading industry partners.
-                Join our waitlist to get early access and updates as we build India’s most transparent credit coaching platform.
+    <!-- 4. Final CTA -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6 text-center max-w-3xl relative z-10 fade-in-up">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Be the First to Experience the Future</h2>
+            <p class="text-gray-300 text-lg mb-10">
+                CreditSaarthi is currently in its pilot stage. Join our waitlist to get early access as we build India’s most transparent credit platform.
             </p>
             
-            <!-- LINK TO JOIN PAGE -->
-            <a href="join.html" class="btn-primary inline-block text-lg px-8 py-4">
+            <a href="join.html" class="btn-hero text-xl px-10 py-4 inline-block">
                 Join the Waitlist Now
             </a>
 
-            <!-- Tagline below CTA -->
-            <p class="text-base text-gray-400 mt-6 tracking-wider">
-                RBI-compliant • Data Secure • 100% Transparent
-            </p>
+            <div class="mt-8 flex justify-center gap-4 text-xs tracking-widest text-[#00B4D8] uppercase opacity-70">
+                <span>RBI-Compliant</span> • <span>Data Secure</span> • <span>Transparent</span>
+            </div>
         </div>
     </section>
 
-    <!-- 5. Footer Section -->
-    <footer class="pt-16 pb-8 border-t border-[#00B4D8]/20">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="flex justify-center gap-6 mb-6">
-                <a href="#" class="hover:text-cyan-400 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">Terms & Conditions</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-cyan-400 transition-colors">X (Twitter)</a>
+    <!-- 5. Footer -->
+    <footer class="py-10 border-t border-[#00B4D8]/10 bg-black/20 backdrop-blur-sm">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <div class="flex justify-center gap-8 mb-6 text-sm">
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">Terms</a>
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-[#00B4D8] transition-colors">Twitter</a>
             </div>
-            <div class="mb-4">
-                <a href="mailto:contact@creditsaarthi.ai" class="hover:text-cyan-400 transition-colors">contact@creditsaarthi.ai</a>
-            </div>
-            <p class="text-sm mb-6">&copy; <span id="year">2025</span> CreditSaarthi. All rights reserved.</p>
-            
-            <!-- Footer Tagline -->
-            <div class="flex justify-center items-center gap-2 text-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <p class="text-sm"><span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span> Your AI Credit Coach, built with privacy and purpose.</p>
-            </div>
+            <p class="text-sm mb-4">&copy; <span id="year">2025</span> CreditSaarthi. All rights reserved.</p>
+            <p class="text-xs opacity-60">Built for India 🇮🇳 with privacy and purpose.</p>
         </div>
     </footer>
 
-    <!-- ======================================== -->
-    <!-- JAVASCRIPT LOGIC (Updated to remove form code) -->
-    <!-- ======================================== -->
     <script>
-        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // --- Intersection Observer for scroll animations ---
         document.addEventListener("DOMContentLoaded", () => {
-            const animatedItems = document.querySelectorAll('.animated-item');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
-            animatedItems.forEach(item => {
-                observer.observe(item);
-            });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-up').forEach(item => observer.observe(item));
         });
     </script>
 </body>
