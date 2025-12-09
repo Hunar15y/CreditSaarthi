@@ -75,19 +75,27 @@
         .brand-name .credit { color: #ffffff; }
         .brand-name .saarthi { color: #00B4D8; text-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
-        /* The Hero Logo Style - Restored for Image */
+        /* The Hero Logo Style - Updated for smooth blending */
         .hero-logo {
             width: 140px; 
             height: 140px;
-            object-fit: contain; /* Keeps logo proportions perfect */
-            filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.6));
+            /* Use cover to fill the soft shape nicely */
+            object-fit: cover;
+            /* Soft rounded corners (squircle shape) */
+            border-radius: 24px;
+            /* Add a subtle glowing border and glass background to blend */
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            background: rgba(0, 180, 216, 0.05);
+            backdrop-filter: blur(5px);
+            /* Outer glow */
+            filter: drop-shadow(0 0 25px rgba(0, 180, 216, 0.5));
             margin-bottom: 2rem;
             animation: floatLogo 6s ease-in-out infinite;
         }
         
         @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.6)); }
-            50% { transform: translateY(-10px); filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.9)); }
+            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 25px rgba(0, 180, 216, 0.5)); }
+            50% { transform: translateY(-10px); filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.7)); }
         }
 
         /* --- INTERACTIVE SLIDER STYLING --- */
