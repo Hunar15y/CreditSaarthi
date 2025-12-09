@@ -23,13 +23,12 @@
             overflow-x: hidden;
         }
 
-        /* --- NEW BACKGROUND SYSTEM (Cleaner, No Floating Orbs) --- */
+        /* --- BACKGROUND SYSTEM --- */
         .futuristic-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             background: radial-gradient(circle at 15% 50%, rgba(0, 31, 63, 1) 0%, #000a1f 100%);
         }
         
-        /* Subtle Gradient Mesh (Replaces the "Balls") */
         .gradient-mesh {
             position: absolute;
             top: -20%; right: -10%;
@@ -40,7 +39,6 @@
             z-index: -1;
         }
 
-        /* Tech Grid Overlay */
         .grid-pattern {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
@@ -53,7 +51,7 @@
 
         /* --- GLASS COMPONENTS --- */
         .glass-header {
-            background: rgba(0, 10, 31, 0.7);
+            background: rgba(0, 10, 31, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 180, 216, 0.1);
         }
@@ -72,81 +70,91 @@
             transform: translateY(-5px);
         }
 
-        /* --- TEXT & BRANDING --- */
-        .text-glow {
-            text-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
-        }
-        
+        /* --- BRANDING & LOGO --- */
         .brand-name { font-weight: 700; letter-spacing: -0.02em; }
         .brand-name .credit { color: #ffffff; }
-        .brand-name .saarthi {
-            color: #00B4D8;
-            text-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+        .brand-name .saarthi { color: #00B4D8; text-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
+
+        /* The Hero Logo Style */
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 20px; /* Soft square/rounded */
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.4);
+            border: 1px solid rgba(0, 180, 216, 0.5);
+            margin-bottom: 2rem;
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0px); box-shadow: 0 0 30px rgba(0, 180, 216, 0.4); }
+            50% { transform: translateY(-10px); box-shadow: 0 0 50px rgba(0, 180, 216, 0.6); }
+        }
+
+        /* --- INTERACTIVE SLIDER STYLING --- */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #00B4D8;
+            box-shadow: 0 0 15px #00B4D8;
+            cursor: pointer;
+            margin-top: -10px;
+            transition: transform 0.1s;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
         }
 
         /* --- BUTTONS --- */
         .btn-neon {
-            background: rgba(0, 180, 216, 0.1);
-            color: #00B4D8;
-            border: 1px solid #00B4D8;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            padding: 0.6rem 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            background: rgba(0, 180, 216, 0.1); color: #00B4D8; border: 1px solid #00B4D8;
+            font-weight: 600; border-radius: 0.5rem; padding: 0.6rem 1.5rem; transition: all 0.3s ease;
         }
-        .btn-neon:hover {
-            background: #00B4D8;
-            color: #000a1f;
-            box-shadow: 0 0 25px rgba(0, 180, 216, 0.6);
-        }
+        .btn-neon:hover { background: #00B4D8; color: #000a1f; box-shadow: 0 0 25px rgba(0, 180, 216, 0.6); }
 
         .btn-hero {
-            background: linear-gradient(90deg, #00B4D8, #0096c7);
-            color: white;
-            font-weight: 700;
-            padding: 1rem 2.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+            background: linear-gradient(90deg, #00B4D8, #0096c7); color: white; font-weight: 700;
+            padding: 1rem 2.5rem; border-radius: 0.5rem; box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
             transition: all 0.3s ease;
         }
-        .btn-hero:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 180, 216, 0.6);
-        }
+        .btn-hero:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 180, 216, 0.6); }
 
-        /* --- ANIMATIONS --- */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
     <!-- Background Layer -->
-    <div class="futuristic-bg">
-        <div class="gradient-mesh"></div>
-    </div>
+    <div class="futuristic-bg"><div class="gradient-mesh"></div></div>
     <div class="grid-pattern"></div>
 
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full glass-header">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             
-            <!-- LOGO SECTION -->
-            <div class="flex items-center gap-3">
-                <!-- Ensure your file is named logo.jpg -->
-                <img src="logo.jpg" alt="CreditSaarthi Logo" class="h-10 w-10 object-cover rounded-full shadow-[0_0_15px_rgba(0,180,216,0.5)] border border-[#00B4D8]/30">
-                <div class="text-2xl brand-name hidden sm:block">
-                    <span class="credit">Credit</span><span class="saarthi">Saarthi</span><span class="text-[#00B4D8]">.ai</span>
-                </div>
+            <!-- Removed Logo Image from here, kept text only -->
+            <div class="text-2xl brand-name">
+                <span class="credit">Credit</span><span class="saarthi">Saarthi</span><span class="text-[#00B4D8]">.ai</span>
             </div>
 
             <a href="join.html" class="btn-neon text-sm">Join Waitlist</a>
@@ -154,12 +162,16 @@
     </header>
 
     <!-- 1. Hero Section -->
-    <main class="container mx-auto px-6 pt-24 pb-20">
+    <main class="container mx-auto px-6 pt-20 pb-20">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <!-- Hero Text -->
-            <div class="text-center lg:text-left fade-in-up">
-                <!-- Glowing Badge -->
+            <!-- Hero Text Side -->
+            <div class="text-center lg:text-left fade-in-up flex flex-col items-center lg:items-start">
+                
+                <!-- NEW: HERO LOGO PLACEMENT -->
+                <!-- Ensure your file is named logo.jpg -->
+                <img src="logo.jpg" alt="CreditSaarthi Logo" class="hero-logo">
+                
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00B4D8]/10 border border-[#00B4D8]/30 mb-6 shadow-[0_0_15px_rgba(0,180,216,0.2)]">
                     <span class="relative flex h-2 w-2">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B4D8] opacity-75"></span>
@@ -173,11 +185,11 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00B4D8] to-white text-glow">AI Credit Coach</span>
                 </h1>
                 
-                <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                <p class="text-lg text-gray-300 mb-10 max-w-xl leading-relaxed">
                     Master your financial destiny with <span class="text-[#00B4D8] font-semibold">CreditSaarthi</span>. The only AI-powered guide built specifically for the Indian credit ecosystem.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
                     <a href="join.html" class="btn-hero text-lg">
                         Join the Inner Circle
                     </a>
@@ -189,50 +201,57 @@
                 </div>
             </div>
             
-            <!-- Hero Visual (Futuristic Credit Gauge) -->
+            <!-- NEW: INTERACTIVE CREDIT SIMULATOR -->
             <div class="relative fade-in-up" style="transition-delay: 200ms;">
                 
                 <!-- Glass Container -->
-                <div class="glass-card p-8 rounded-3xl relative z-10 border border-[#00B4D8]/30 flex flex-col items-center justify-center min-h-[300px]">
+                <div class="glass-card p-8 rounded-3xl relative z-10 border border-[#00B4D8]/30 flex flex-col items-center justify-center min-h-[350px]">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00B4D8] to-transparent opacity-70"></div>
                     
-                    <!-- NEW SVG: Credit Gauge -->
-                    <svg viewBox="0 0 200 120" class="w-full max-w-[280px] drop-shadow-[0_0_15px_rgba(0,180,216,0.3)]">
-                        <!-- Gauge Background -->
-                        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1e293b" stroke-width="15" stroke-linecap="round"/>
-                        <!-- Gauge Progress (Cyan) -->
-                        <path d="M 20 100 A 80 80 0 0 1 140 30" fill="none" stroke="#00B4D8" stroke-width="15" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="0">
-                            <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.5s" fill="freeze" />
-                        </path>
-                        <!-- Center Text -->
-                        <text x="100" y="90" text-anchor="middle" fill="white" font-family="Poppins" font-weight="bold" font-size="28">780</text>
-                        <text x="100" y="110" text-anchor="middle" fill="#94a3b8" font-family="Poppins" font-size="10">EXCELLENT</text>
-                    </svg>
+                    <!-- Header -->
+                    <h3 class="text-[#00B4D8] font-semibold tracking-wider text-sm uppercase mb-6">Credit Score Simulator</h3>
 
-                    <div class="w-full mt-6 space-y-3">
-                        <div class="h-2 bg-[#1e293b] rounded-full overflow-hidden">
-                            <div class="h-full bg-[#00B4D8] w-3/4 animate-pulse"></div>
-                        </div>
-                        <div class="flex justify-between text-xs text-gray-400">
-                            <span>Analysis</span>
-                            <span class="text-[#00B4D8]">Optimized</span>
+                    <!-- SVG GAUGE -->
+                    <div class="relative w-64 h-32 mb-4">
+                        <svg viewBox="0 0 200 100" class="w-full h-full drop-shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                            <!-- Background Track -->
+                            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+                            <!-- Active Track (Dynamic) -->
+                            <path id="gauge-path" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#00B4D8" stroke-width="12" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="125" />
+                        </svg>
+                        
+                        <!-- Score Display -->
+                        <div class="absolute bottom-0 left-0 w-full text-center">
+                            <div id="score-display" class="text-5xl font-bold text-white tracking-tighter drop-shadow-lg">650</div>
+                            <div id="status-display" class="text-sm font-medium text-[#00B4D8] uppercase tracking-widest mt-1">Average</div>
                         </div>
                     </div>
+
+                    <!-- SLIDER -->
+                    <div class="w-full mt-6 px-4">
+                        <input type="range" min="300" max="900" value="650" class="w-full" id="score-slider">
+                        <div class="flex justify-between text-xs text-gray-500 mt-2 font-mono">
+                            <span>300</span>
+                            <span>900</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-400 mt-6 text-center italic">
+                        Move the slider to see how Saarthi categorizes your health.
+                    </p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- 2. Vision Section (Glass Cards) -->
+    <!-- 2. Vision Section -->
     <section class="py-24 relative z-10">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Image side -->
                 <div class="glass-card p-2 rounded-2xl fade-in-up">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1632&auto=format&fit=crop" 
                          alt="Digital Finance" class="rounded-xl w-full opacity-80 hover:opacity-100 transition-opacity duration-500">
                 </div>
-                <!-- Text side -->
                 <div class="fade-in-up" style="transition-delay: 200ms;">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">Why We’re Building <span class="text-[#00B4D8]">CreditSaarthi</span></h2>
                     <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
@@ -247,11 +266,10 @@
         </div>
     </section>
 
-    <!-- 3. Features (Grid of Glass) -->
+    <!-- 3. Features -->
     <section class="py-24">
         <div class="container mx-auto px-6 max-w-6xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 fade-in-up">Unlock Your Financial Potential</h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="glass-card p-8 rounded-2xl text-center fade-in-up" style="transition-delay: 100ms;">
@@ -314,7 +332,10 @@
     </footer>
 
     <script>
+        // Footer Year
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll Animations
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -325,6 +346,54 @@
             }, { threshold: 0.1 });
             document.querySelectorAll('.fade-in-up').forEach(item => observer.observe(item));
         });
+
+        // --- INTERACTIVE SLIDER LOGIC ---
+        const slider = document.getElementById('score-slider');
+        const scoreDisplay = document.getElementById('score-display');
+        const statusDisplay = document.getElementById('status-display');
+        const gaugePath = document.getElementById('gauge-path');
+
+        function updateGauge(score) {
+            // Map score (300-900) to dashoffset (251-0)
+            // 300 = offset 251 (empty)
+            // 900 = offset 0 (full)
+            const minScore = 300;
+            const maxScore = 900;
+            const maxOffset = 251;
+            
+            const percentage = (score - minScore) / (maxScore - minScore);
+            const newOffset = maxOffset - (percentage * maxOffset);
+            
+            gaugePath.style.strokeDashoffset = newOffset;
+            scoreDisplay.textContent = score;
+
+            // Determine Status & Color
+            let color = "#ef4444"; // Red (Default/Poor)
+            let text = "NEEDS ATTENTION";
+
+            if (score >= 650) {
+                color = "#eab308"; // Yellow
+                text = "AVERAGE";
+            }
+            if (score >= 750) {
+                color = "#22c55e"; // Green
+                text = "GOOD";
+            }
+            if (score >= 850) {
+                color = "#00B4D8"; // Cyan (Excellent/Saarthi Brand Color)
+                text = "EXCELLENT";
+            }
+
+            gaugePath.style.stroke = color;
+            statusDisplay.style.color = color;
+            statusDisplay.textContent = text;
+            scoreDisplay.style.color = "white"; // Keep numbers white for readability
+        }
+
+        // Initialize and Listen
+        updateGauge(slider.value);
+        slider.addEventListener('input', (e) => updateGauge(e.target.value));
+
     </script>
 </body>
 </html>
