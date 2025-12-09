@@ -75,22 +75,19 @@
         .brand-name .credit { color: #ffffff; }
         .brand-name .saarthi { color: #00B4D8; text-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
 
-        /* The Hero Logo Style */
+        /* The Hero Logo Style - Restored for Image */
         .hero-logo {
-            width: 120px; /* Slightly larger for center stage */
-            height: 120px;
-            object-fit: contain; /* Changed to contain for PNGs */
-            border-radius: 20px; 
-            /* Removed background color/border to let PNG transparency work, 
-               but kept the glow for effect */
-            filter: drop-shadow(0 0 15px rgba(0, 180, 216, 0.4));
+            width: 140px; 
+            height: 140px;
+            object-fit: contain; /* Keeps logo proportions perfect */
+            filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.6));
             margin-bottom: 2rem;
             animation: floatLogo 6s ease-in-out infinite;
         }
         
         @keyframes floatLogo {
-            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 15px rgba(0, 180, 216, 0.4)); }
-            50% { transform: translateY(-10px); filter: drop-shadow(0 0 25px rgba(0, 180, 216, 0.6)); }
+            0%, 100% { transform: translateY(0px); filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.6)); }
+            50% { transform: translateY(-10px); filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.9)); }
         }
 
         /* --- INTERACTIVE SLIDER STYLING --- */
@@ -170,9 +167,14 @@
             <!-- Hero Text Side -->
             <div class="text-center fade-in-up flex flex-col items-center w-full">
                 
-                <!-- HERO LOGO PLACEMENT -->
-                <!-- Updated filename to saarthilogo.png -->
-                <img src="saarthilogo.png" alt="CreditSaarthi Logo" class="hero-logo">
+                <!-- HERO LOGO PLACEMENT: IMAGE -->
+                <!-- 
+                     INSTRUCTIONS: 
+                     1. Upload your logo to https://postimages.org/
+                     2. Copy the "Direct Link" (ending in .png or .jpg)
+                     3. Replace 'PASTE_YOUR_LINK_HERE' below with that link.
+                -->
+                <img src="https://i.postimg.cc/T155kXn8/saarthilogo.png" alt="CreditSaarthi Logo" class="hero-logo">
                 
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00B4D8]/10 border border-[#00B4D8]/30 mb-6 shadow-[0_0_15px_rgba(0,180,216,0.2)]">
                     <span class="relative flex h-2 w-2">
