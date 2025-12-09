@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Secured - CreditSaarthi.ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎉%3C/text%3E%3C/svg%3E">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000a1f;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Deep Space Background */
+        .space-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #001F3F 0%, #000000 100%);
+        }
+        
+        .stars {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 20% 20%, white 1px, transparent 0),
+                radial-gradient(2px 2px at 30% 30%, rgba(255,255,255,0.5) 1px, transparent 0),
+                radial-gradient(1px 1px at 40% 40%, white 1px, transparent 0);
+            background-size: 550px 550px;
+            opacity: 0.3;
+            animation: star-move 100s linear infinite;
+        }
+
+        @keyframes star-move { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
+
+        /* Holographic Card */
+        .holo-card {
+            background: rgba(13, 25, 48, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            box-shadow: 
+                0 0 40px rgba(0, 180, 216, 0.1),
+                inset 0 0 20px rgba(0, 180, 216, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Scanner Line Animation */
+        .scanner-line {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, #00B4D8, transparent);
+            animation: scan 3s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 110%; opacity: 0; }
+        }
+
+        /* Success Pulse */
+        .success-ring {
+            border: 2px solid #00B4D8;
+            border-radius: 50%;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* Button Glow */
+        .btn-glow {
+            background: linear-gradient(90deg, #001F3F, #003366);
+            border: 1px solid #00B4D8;
+            color: #00B4D8;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow:hover {
+            background: #00B4D8;
+            color: #000a1f;
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.4);
+        }
+
+        /* Fade In Animation */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-center">
+
+    <div class="space-bg">
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="holo-card max-w-lg w-full p-10 rounded-3xl fade-in-up">
+        
+        <!-- Scanner Effect -->
+        <div class="scanner-line"></div>
+
+        <!-- Success Icon -->
+        <div class="relative w-24 h-24 mx-auto mb-8 flex items-center justify-center">
+            <div class="absolute inset-0 success-ring"></div>
+            <div class="absolute inset-0 success-ring" style="animation-delay: 0.5s;"></div>
+            <div class="relative z-10 w-20 h-20 bg-[#00B4D8] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,180,216,0.6)]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl md:text-5xl font-bold mb-2 fade-in-up delay-100 tracking-tight text-white">
+            Access Secured
+        </h1>
+
+        <!-- Subhead -->
+        <p class="text-lg text-cyan-200/80 font-medium mb-10 fade-in-up delay-200">
+            Welcome to the future of credit building.
+        </p>
+
+        <!-- Status Box -->
+        <div class="bg-[#000a1f]/50 border border-[#00B4D8]/20 rounded-xl p-6 mb-8 text-left fade-in-up delay-300 relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1 h-full bg-[#00B4D8]"></div>
+            
+            <div class="flex items-start gap-4">
+                <div class="mt-1">
+                    <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-1">Status: Confirmed</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A verification email has been dispatched to your inbox. 
+                        <span class="block mt-2 text-[#00B4D8] text-xs">
+                            <svg class="inline w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Check spam if not visible within 2 mins.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Button -->
+        <a href="index.html" class="btn-glow inline-block py-3 px-8 rounded-lg font-semibold tracking-wide text-sm uppercase fade-in-up delay-300">
+            Return to Headquarters
+        </a>
+        
+        <p class="mt-8 text-xs text-gray-500 fade-in-up delay-300">ID: <span class="font-mono text-gray-400">CS-WAITLIST-V1</span></p>
+    </div>
+
+</body>
+</html>

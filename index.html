@@ -81,7 +81,8 @@
             <div class="text-2xl font-bold text-white">
                 Credit<span class="text-gradient">Saarthi</span>.ai
             </div>
-            <a href="#join-waitlist" class="btn-primary text-sm py-2 px-4">Join the Waitlist</a>
+            <!-- LINK TO JOIN PAGE -->
+            <a href="join.html" class="btn-primary text-sm py-2 px-4">Join the Waitlist</a>
         </nav>
     </header>
 
@@ -109,7 +110,8 @@
                     Understand, improve, and master your credit with <span class="brand-name"><span class="credit">Credit</span><span class="saarthi">Saarthi</span></span>, your personal AI coach built for India.
                 </p>
 
-                <a href="#join-waitlist" class="btn-primary inline-block">
+                <!-- LINK TO JOIN PAGE -->
+                <a href="join.html" class="btn-primary inline-block">
                     Join the Waitlist
                 </a>
             </div>
@@ -198,8 +200,8 @@
         </div>
     </section>
 
-    <!-- 4. Join the Journey Section (with Form) -->
-    <section id="join-waitlist" class="py-20 animated-section">
+    <!-- 4. Join the Journey Section (SIMPLIFIED) -->
+    <section class="py-20 animated-section">
         <div class="container mx-auto px-6 text-center max-w-2xl animated-item">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be the First to Experience the Future of Credit Coaching</h2>
             <p class="text-gray-300 text-lg mb-8">
@@ -207,29 +209,12 @@
                 Join our waitlist to get early access and updates as we build India’s most transparent credit coaching platform.
             </p>
             
-            <div class="bg-slate-800/50 p-6 md:p-8 rounded-2xl border border-[#00B4D8]/30 shadow-2xl max-w-lg mx-auto">
-                <div id="waitlist-form-container" class="w-full">
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <input type="email" id="email-input" required placeholder="Enter your email address" class="w-full px-5 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300 shadow-inner">
-                        <button id="submit-button" class="btn-primary whitespace-nowrap">
-                            Join the Waitlist
-                        </button>
-                    </div>
-                    <p id="error-message" class="hidden mt-2 text-red-400 text-sm text-left">
-                        Invalid email. Please use a @gmail.com or @yahoo.com address.
-                    </p>
-                </div>
-                
-                <div id="sending-message" class="hidden mt-4 text-cyan-400 font-semibold text-center">
-                    Sending...
-                </div>
-                
-                <div id="success-message" class="hidden mt-4 text-green-400 font-semibold text-center">
-                    ✅ Thank you! You're on the list. We'll notify you at launch.
-                </div>
-            </div>
+            <!-- LINK TO JOIN PAGE -->
+            <a href="join.html" class="btn-primary inline-block text-lg px-8 py-4">
+                Join the Waitlist Now
+            </a>
 
-            <!-- Tagline below CTA (made larger) -->
+            <!-- Tagline below CTA -->
             <p class="text-base text-gray-400 mt-6 tracking-wider">
                 RBI-compliant • Data Secure • 100% Transparent
             </p>
@@ -261,78 +246,11 @@
     </footer>
 
     <!-- ======================================== -->
-    <!-- JAVASCRIPT LOGIC                     -->
+    <!-- JAVASCRIPT LOGIC (Updated to remove form code) -->
     <!-- ======================================== -->
     <script>
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // --- Form Handling Logic ---
-        const submitButton = document.getElementById('submit-button');
-        const emailInput = document.getElementById('email-input');
-        const errorMessage = document.getElementById('error-message');
-        const successMessage = document.getElementById('success-message');
-        const sendingMessage = document.getElementById('sending-message');
-        const formContainer = document.getElementById('waitlist-form-container');
-
-        submitButton.addEventListener('click', handleSubmit);
-
-        async function handleSubmit(event) {
-            event.preventDefault(); 
-            const email = emailInput.value.toLowerCase();
-            
-            if (!isValidEmail(email)) {
-                errorMessage.classList.remove('hidden'); 
-                return; 
-            }
-            
-            errorMessage.classList.add('hidden');
-            formContainer.style.display = 'none'; // Hide the form container
-            sendingMessage.classList.remove('hidden');
-
-            const formData = new FormData();
-            formData.append('email', email);
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !! REMEMBER: Your Formspree ID should be here already  !!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // FIX: Removed the extra 'S' from httpsS
-            const formspreeEndpoint = 'https://formspree.io/f/mqkvzxyq'; // <-- MAKE SURE THIS IS YOUR ID
-
-            try {
-                const response = await fetch(formspreeEndpoint, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                sendingMessage.classList.add('hidden');
-
-                if (response.ok) {
-                    successMessage.classList.remove('hidden');
-                } else {
-                    errorMessage.textContent = 'Oops! Something went wrong. Please try again.';
-                    errorMessage.classList.remove('hidden');
-                    formContainer.style.display = 'block'; // Show form again on error
-                }
-
-            } catch (error) {
-                sendingMessage.classList.add('hidden');
-                errorMessage.textContent = 'Oops! Something went wrong. Please try again.';
-                errorMessage.classList.remove('hidden');
-                formContainer.style.display = 'block'; // Show form again on error
-            }
-        }
-        
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                return false;
-            }
-            return email.endsWith('@gmail.com') || email.endsWith('@yahoo.com');
-        }
 
         // --- Intersection Observer for scroll animations ---
         document.addEventListener("DOMContentLoaded", () => {

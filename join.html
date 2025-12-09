@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Waitlist - CreditSaarthi.ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    <style>
+        body {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            background-color: #000a1f; /* Darker Navy base */
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Futuristic Background Elements */
+        .futuristic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #00B4D8;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: #001F3F;
+            bottom: -150px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: #009ACD;
+            top: 40%;
+            left: 60%;
+            opacity: 0.2;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 50px); }
+        }
+
+        /* Grid Pattern Overlay */
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 180, 216, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 216, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(0, 31, 63, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Input Styling */
+        .input-group {
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            background-color: rgba(0, 180, 216, 0.05);
+            border-color: #00B4D8;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.2);
+        }
+
+        /* Button Styling */
+        .btn-glow {
+            background: linear-gradient(90deg, #00B4D8, #0077b6);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, #0077b6, #00B4D8);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .btn-glow:hover::before { opacity: 1; }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Hide number input spinners */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; margin: 0; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Background Elements -->
+    <div class="futuristic-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="grid-pattern"></div>
+
+    <!-- Main Content -->
+    <div class="glass-card max-w-md w-full p-8 rounded-2xl relative">
+        
+        <!-- Subtle glow border effect at top -->
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-[#00B4D8] to-transparent opacity-50"></div>
+
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="index.html" class="text-3xl font-bold tracking-tight inline-block hover:opacity-80 transition-opacity">
+                Credit<span class="text-[#00B4D8]">Saarthi</span>.ai
+            </a>
+            <p class="text-cyan-200/60 text-sm mt-2 font-medium tracking-wide uppercase">Financial Freedom Access</p>
+        </div>
+
+        <!-- The Form -->
+        <form id="waitlistForm" class="space-y-6">
+            
+            <!-- Name -->
+            <div class="input-group">
+                <label class="block text-xs font-semibold text-[#00B4D8] uppercase tracking-wider mb-2">Full Name</label>
+                <input type="text" name="name" required class="input-field placeholder-gray-500" placeholder="e.g. Rahul Sharma">
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="input-group">
+                <label class="block text-xs font-semibold text-[#00B4D8] uppercase tracking-wider mb-2">WhatsApp Number</label>
+                <input type="tel" name="whatsapp" required class="input-field placeholder-gray-500" placeholder="e.g. 9876543210" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number">
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label class="block text-xs font-semibold text-[#00B4D8] uppercase tracking-wider mb-2">Email Address</label>
+                <input type="email" name="email" required class="input-field placeholder-gray-500" placeholder="e.g. rahul@gmail.com">
+            </div>
+
+            <!-- Goal Dropdown -->
+            <div class="input-group">
+                <label class="block text-xs font-semibold text-[#00B4D8] uppercase tracking-wider mb-2">Primary Goal</label>
+                <div class="relative">
+                    <select name="goal" required class="input-field cursor-pointer appearance-none">
+                        <option value="" disabled selected>Select your objective...</option>
+                        <option value="Improve low score" class="text-black">I want to improve my low score</option>
+                        <option value="No credit history" class="text-black">I have no credit history (New)</option>
+                        <option value="Get loan/card" class="text-black">I want to get a specific loan/card</option>
+                        <option value="Just curious" class="text-black">Just curious / exploring</option>
+                    </select>
+                    <!-- Custom Arrow Icon -->
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#00B4D8]">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="btn-glow w-full py-3.5 rounded-lg text-white font-bold tracking-wide mt-2">
+                JOIN THE INNER CIRCLE
+            </button>
+            
+            <!-- Loading Text -->
+            <div id="loadingText" class="hidden flex flex-col items-center justify-center space-y-2 mt-4">
+                <div class="w-6 h-6 border-2 border-[#00B4D8] border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-[#00B4D8] text-xs font-medium tracking-wide animate-pulse">SECURING YOUR SPOT...</p>
+            </div>
+            
+            <!-- Error Message -->
+            <p id="errorMessage" class="hidden text-center text-red-400 text-sm mt-2 bg-red-900/20 p-2 rounded border border-red-500/30">
+                Something went wrong. Please try again.
+            </p>
+
+        </form>
+
+        <div class="mt-8 flex items-center justify-center space-x-2 opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-[#00B4D8]" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-xs text-gray-400 font-light tracking-wide">
+                256-bit Secure Encryption
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('waitlistForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingText = document.getElementById('loadingText');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // This is YOUR specific Google Script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwIPsksEppTsSqfc3d33QFVu8HRoyQ8geEQiXot5_qsNOSV3PL1IlEiwGCvYUo9HjC/exec';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI Loading State
+            submitBtn.classList.add('hidden');
+            loadingText.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+
+            const formData = new FormData(form);
+
+            try {
+                // Send data to Google Sheets
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // Critical for Google Apps Script
+                });
+
+                // Success! Redirect to celebration page
+                window.location.href = 'success.html';
+
+            } catch (error) {
+                console.error('Error!', error.message);
+                loadingText.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+                errorMessage.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
